@@ -45,7 +45,7 @@ class Detector(object):
     ALPHA_WIDTH = 0.05
 
     ITERATION_LIMIT = 1000
-    PROB_THRESHOLD = 0.1
+    PROB_THRESHOLD = 0.0
     CONV_THRESHOLD = 0.99999
     BASE_FREQ = 10000
     UNKNOWN_LANG = 'unknown'
@@ -232,7 +232,7 @@ class Detector(object):
         return maxp
 
     def _sort_probability(self, prob):
-        result = [Language(lang, p) for (lang, p) in zip(self.langlist, prob) if p > self.PROB_THRESHOLD]
+        result = [Language(lang, p) for (lang, p) in zip(self.langlist, prob)]
         result.sort(reverse=True)
         return result
 
